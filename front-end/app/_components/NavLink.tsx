@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { JSX } from "react";
 
 interface Page {
@@ -9,17 +10,15 @@ interface Page {
 
 interface NavLinkProps {
   page: Page;
-  currentPage: string;
   setIsOpen: (IsOpen: boolean) => void;
 }
 
 export default function NavLink({
   page,
   setIsOpen,
-  currentPage,
 }: NavLinkProps): JSX.Element {
-  const isActive =
-    currentPage === page.href || currentPage.startsWith(page.href + "/");
+  const currentPage = usePathname();
+  const isActive = currentPage === page.href;
   return (
     <li>
       <Link

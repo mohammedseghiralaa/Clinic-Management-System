@@ -11,10 +11,10 @@ export default function ClinicLoginPage() {
   const router = useRouter();
   const mutation = useMutation({
     mutationFn: loginAdmin,
-    onSuccess: (data: any) => {
-      router.push("/");
+    onSuccess: () => {
+      router.push("/dashboard");
     },
-    onError: (err: any) => {
+    onError: (err) => {
       alert(err.message);
     },
   });

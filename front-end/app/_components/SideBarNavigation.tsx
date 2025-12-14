@@ -5,11 +5,9 @@ import Logo from "./Logo";
 import NavLink from "./NavLink";
 import { Menu, X } from "lucide-react";
 import Header from "./Header";
-import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const currentPage = usePathname();
   return (
     <>
       {/* Mobile Header */}
@@ -45,12 +43,7 @@ export default function Navigation() {
           {/* Navigation Links */}
           <ul className="flex flex-col gap-2 px-3 mt-16 lg:mt-0">
             {Pages.map((page) => (
-              <NavLink
-                key={page.name}
-                page={page}
-                currentPage={currentPage}
-                setIsOpen={setIsOpen}
-              />
+              <NavLink key={page.name} page={page} setIsOpen={setIsOpen} />
             ))}
           </ul>
         </div>

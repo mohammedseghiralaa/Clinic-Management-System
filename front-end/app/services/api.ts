@@ -10,6 +10,6 @@ export const loginAdmin = async (data: { email: string; password: string }) => {
     throw new Error("Invalid email or password");
   }
 
-  const result = await res.json(); // استدعاء json مرة واحدة
+  const result = await res.json();
   return result; // ترجع البيانات للـmutation
 };
